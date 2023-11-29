@@ -12,7 +12,7 @@ esMultiploDeTres num = mod num 3 == 0
 esMultiploDe num1 num2 = mod num1 num2 == 0
 
 --1.3 Cubo de un numero--
-cubo num = num ^ 3
+cubo num = num ^3
 
 --1.4 Area de un rectangulo--
 area base altura = base * altura
@@ -35,10 +35,9 @@ celsiusToFahr temp = (1.8 * temp) + 32
 fahrToCelsius temp = (temp - 32) / 1.8
 
 --1.8 Hace frio, temperatura indicada en fahrenheit--
-haceFrio temp = (fahrToCelsius temp) < 8
+haceFrio temp = fahrToCelsius temp < 8
 
 --1.9 mcm--
-
 
 gdc :: Int -> Int -> Int
 gdc x y | x == y = x
