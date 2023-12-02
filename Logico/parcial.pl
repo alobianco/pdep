@@ -57,68 +57,44 @@ duracionTotal(ListaSketchs, DuracionTotal):-
 % Esto sucede cuando en ese conjunto disponemos de intérpretes que cubren todos los roles necesarios para el mencionado sketch.
 % Inversible para el sketch.
 
-rolesSketch(Sketch, Roles):-
-    necesita(Sketch,_),
-    findall(Rol, necesita(Sketch, Rol), Roles).
-
-satisfaceUnRol(Artista, Sketch):-
-    puedeCumplir(Artista,_),
-    necesita(Sketch,_),
-    rolesSketch(Sketch, Roles),
-    forall(member(Rol, Roles), puedeCumplir(Artista, Rol)).
+puedeSerInterpretado(Sketch, Artistas):-
+    necesita(Sketch, _),
+    forall(necesita(Sketch,Rol),(member(Artista, Artistas), puedeCumplir(Artista, Rol))).
     
 
+% Hacer generarShow/3 que relacione: 
+% Un conjunto de posibles intérpretes.
+% Una duración máxima del show.
+% Una lista de sketches no vacía (un show), que deben poder ser interpretados por los intérpretes y durar menos que la duración máxima.
+% Inversible para el show.
+
+generarShow(_, []).
+generarShow(Interpretes,  [Sketch | RestoShow]):-
+    necesita(Sketch, _),
+    puedeSerInterpretado(Sketch, Interpretes),
+    generarShow(Interpretes, RestoShow).
+    
+% Los shows, muchas veces tienen algún participante estrella; que son aquellos que puede participar en todos los sketchs que componen dicho show. 
+% Implementar un predicado que relacione a un show con un participante estrella.
+% Inversible para la estrella
+estrella(Show, Estrella):-
+    puedeCumplir(Estrella,_),
+    generarShow([Estrella], Show).
 
 
+% Para hacer mejor el marketing, queremos saber si un show:
+% Es puramenteMusical/1. Esto sucede cuando en todos los sketches, sólo se precisan roles de instrumentista.
+% Tiene todosCortitos/1. Esto sucede cuando todos los sketches del show duran menos de 10 minutos.
+% Los juntaATodos/1. Este evento especial solo pasa si la única manera de que el show suceda es que tengan que participar todos los intérpretes que conocemos.
+% No necesitan ser inversibles
 
+puramenteMusical(Show):-
+    forall(member(Sketch, Show), necesita(Sketch, instrumentista(_))).
 
+todosCortitos(Show):-
+    forall(member(Sketch, Show), (duracion(Sketch, Duracion), Duracion < 10)).
 
+/*juntaATodos(Show, ListaInterpretes):-
+    findall(Interpretes, (member(Sketch, Show), puedeSerInterpretado(Sketch, Interpretes)), ListaInterpretes).*/
+    
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*puedeRealizarConjunto([],_).
-puedeRealizarConjunto([Interprete | Resto], Sketch):-
-    puedeCumplir(Interprete, Rol),
-    necesita(Sketch, Rol),
-    puedeRealizarConjunto(Resto, Sketch).
-
-
-puedeSerInterpretado(Sketch, Interpretes):-
-    necesita(Sketch,_),
-    puedeRealizarConjunto(Interpretes, Sketch).*/
-
-
-% [daniel, carlos] --> 
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    % payadaDeLaVaca Daniel, Jorge
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    % malPuntuado Daniel, Marcos
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    % laBellaYGraciosaMozaMarchoseALavarLaRopa, actor(canto)). % Daniel, Carlos, Carlitos, Marcos, Jorge
-    % laBellaYGraciosaMozaMarchoseALavarLaRopa, instrumentista(violin)). % Carlos
-    % laBellaYGraciosaMozaMarchoseALavarLaRopa, instrumentista(tuba)). % Daniel
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    % lutherapia, actor(paciente) % Daniel
-    % lutherapia, actor(psicologo) % Marcos
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    % cantataDelAdelantadoDonRodrigoDiazDeCarreras, actor(narrador) % Daniel, Marcos
-    % cantataDelAdelantadoDonRodrigoDiazDeCarreras, instrumentista(percusion) % Daniel, Marcos
-    % cantataDelAdelantadoDonRodrigoDiazDeCarreras, actor(canto) % Daniel, Carlos, Carlitos, Marcos, Jorge
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    % rhapsodyInBalls, instrumentista(bolarmonio) % Jorge
-    % rhapsodyInBalls, instrumentista(piano) % Carlitos
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
