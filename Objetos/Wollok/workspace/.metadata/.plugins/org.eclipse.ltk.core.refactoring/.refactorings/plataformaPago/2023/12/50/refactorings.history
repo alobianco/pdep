@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Redenominar el recurso &apos;plataformaPago/src/example.wlk&apos; como &apos;monetizacion.wlk&apos;" description="Redenominar recurso &apos;example.wlk&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/example.wlk" name="monetizacion.wlk" stamp="1702079402382" updateReferences="true"/>
-</session>
