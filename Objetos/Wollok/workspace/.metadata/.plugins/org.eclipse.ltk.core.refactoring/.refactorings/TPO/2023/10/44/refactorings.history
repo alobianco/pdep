@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Redenominar el recurso &apos;TPO/src/neflis.wlk&apos; como &apos;cuentas.wlk&apos;" description="Redenominar recurso &apos;neflis.wlk&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/neflis.wlk" name="cuentas.wlk" stamp="1698030233162" updateReferences="true"/>
+</session>

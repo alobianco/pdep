@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.uqbar.project.wollok.ui.launch.WollokLaunchConfigurationType">
+<listAttribute key="ATTR_WOLLOK_LIBS"/>
+<booleanAttribute key="WOLLOK_DYNAMIC_DIAGRAM" value="true"/>
+<booleanAttribute key="WOLLOK_IS_REPL" value="true"/>
+<booleanAttribute key="org.eclipse.debug.core.ATTR_REFRESH_RECURSIVE" value="true"/>
+<stringAttribute key="org.eclipse.debug.core.ATTR_REFRESH_SCOPE" value="${workspace}"/>
+<booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_START_ON_FIRST_THREAD" value="false"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="org.uqbar.project.wollok.launch.WollokLauncher"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-r -dd -requestsPort 0 -eventsPort 0 -dynamicDiagramPort 65026 -folder  -wf  "/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="__EMPTY__"/>
+<booleanAttribute key="org.eclipse.jdt.launching.STOP_IN_MAIN" value="false"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Duser.language=es_AR"/>
+</launchConfiguration>

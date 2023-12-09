@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Redenominar el recurso &apos;ejemploShrek/src/example.wlk&apos; como &apos;Shrek.wlk&apos;" description="Redenominar recurso &apos;example.wlk&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/example.wlk" name="Shrek.wlk" stamp="1696114542332" updateReferences="true"/>
+</session>

@@ -1,0 +1,16 @@
+import taxi.*
+describe "Test de Daniel"{
+	test "Daniel no puede llevar pasajero joven" {
+		const pasajeroJoven = object{
+			method esJoven() = true
+		}
+		assert.notThat(daniel.llevaA(pasajeroJoven))
+	}
+	test "Daniel puede llevar pasajeros no jovenes" {
+			const pasajeroViejo = object{
+			method esJoven() = false
+		}
+		assert.that(daniel.llevaA(pasajeroViejo))
+	}
+	}
+

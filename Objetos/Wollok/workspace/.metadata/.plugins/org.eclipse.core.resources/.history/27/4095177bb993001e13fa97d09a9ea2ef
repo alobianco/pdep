@@ -1,0 +1,59 @@
+class Empleado {
+	var property puesto
+	var salud = 100
+	const habilidades = []
+	
+	method estaIncapacitado() = salud < puesto.saludCritica()
+	method puedeUsar(habilidad) 
+		= not self.estaIncapacitado() && self.poseeHabilidad(habilidad)
+		
+	method poseeHabilidad(habilidad) = habilidades.contains(habilidad)
+}
+
+class Jefe inherits Empleado {
+	var subordinados
+	override method poseeHabilidad(habilidad) 
+		= super(habilidad) || self.algunoDeSusSubordinadosLaPuedeUsar(habilidad)
+	method algunoDeSusSubordinadosLaPuedeUsar(habilidad)
+		= subordinados.any {subordinado => subordinado.puedeUsar(habilidad)	}
+	
+}
+
+object espia {
+	method saludCritica() = 15
+}
+
+class Oficinista {
+	var cantEstrellas = 0
+	method saludCritica() = 40 - 5 * cantEstrellas
+}
+
+
+
+
+
+
+
+
+// Esto no se hace, porque no se puede hacer una herencia con dos herederos, porque eso causa problemas, la herencia es para cuando solo se hereda una cosa.
+/* 
+class Espia inherits Empleado{
+	
+	override method saludCritica() = 15
+	
+}
+
+class Oficinista inherits Empleado{
+	var property cantidadEstrellas = 0
+	
+	method sobreviveMision() {
+		cantidadEstrellas = cantidadEstrellas + 1
+	} 
+	
+	
+	override method saludCritica() = (40 - 5*cantidadEstrellas) 
+	
+}
+
+const oficinista = new Oficinista(habilidades = #{"Mirar a los ojos", "Salvar al presidente", "Usar excel"})
+const espia = new Espia(habilidades = #{"Disparar", "Salvar damiselas", "Tomar de la buena", "Usar disfraz"})*/

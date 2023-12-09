@@ -1,0 +1,4 @@
+#Tue Jul 13 23:29:53 UTC 2021
+-Xms=512m
+-XX\:MaxPermSize\==1024M
+-Xmx=1024m

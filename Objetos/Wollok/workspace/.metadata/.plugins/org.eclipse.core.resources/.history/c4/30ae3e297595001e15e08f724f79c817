@@ -1,0 +1,74 @@
+// Un barco tiene una mision, la cual puede cambiar en cualquier momento
+// Un barco tiene tripulantes (Piratas) y puede reclutar mas
+
+
+// Cada pirata puede llevar items, tiene un nivel de ebriedad
+// tambien la cantidad de dinero que tiene (un numero de monedas)
+
+// Misiones, 3 tipos, busqueda de tesoro, convertirse en leyenda y saqueos
+
+
+
+
+// Punto 1 - Saber si un pirata es útil para una misión
+// pirata.esUtilPara(mision)
+// mision.esUtil(pirata)
+
+//----------------------Pirata----------------------//
+
+class Pirata{
+	const property items = []
+	var property nivelDeEbriedad = 0
+	var property monedas = 0
+	
+	method tieneItem(item) = items.contains(item)
+	
+	method cantidadDeItems() = items.size()
+	
+	method puedeSaquearA(victima) = victima.puedeSerSaqueadoPor(self)
+	
+	method estaPasadoDeGrogXD() = nivelDeEbriedad >= 90 && self.tieneItem("botella de GrogXD")
+}
+
+//----------------------MISIONES----------------------//
+
+class BusquedaDelTesoro{
+	
+	method esUtil(pirata) = self.tieneAlgunItemUtil(pirata) && pirata.monedas() <= 5
+	
+	method tieneAlgunItemUtil(pirata) = 
+		#{"brujula", "mapa", "botella de GrogXD"}.any({item => pirata.tieneItem(item)})
+}
+
+class ConvertirseEnLeyenda{
+	const property itemObligatorio
+	
+	method esUtil(pirata) = 
+		pirata.cantidadDeItems() >= 10 && pirata.tieneItem(itemObligatorio)
+}
+
+class Saqueo{
+	//var property maximoMonedas = 0  -- Esto no va, porque tiene que ser el mismo para todos
+	const property victima
+	method esUtil(pirata) = 
+		pirata.monedas() < self.maximoDeMonedas() && pirata.puedeSaquearA(victima)
+		
+	method maximoDeMonedas() = configuracionSaqueos.maximoDeMonedas()
+}
+
+object configuracionSaqueos{
+	var property maximoDeMonedas = 0
+}
+
+//----------------------VICTIMAS/BARCO----------------------//
+
+class BarcoPirata{
+	method puedeSerSaqueadoPor(pirata) = pirata.estaPasadoDeGrogXD()	
+}
+
+class CiudadCostera{
+	method puedeSerSaqueadoPor(pirata) = pirata.nivelDeEbriedad() >= 50
+}
+		
+
+

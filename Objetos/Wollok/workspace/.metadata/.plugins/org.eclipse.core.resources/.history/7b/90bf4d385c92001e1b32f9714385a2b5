@@ -1,0 +1,24 @@
+class Empleado{
+	var property salud = 100
+	var property habilidades = #{}
+	const property esJefe = false
+}
+
+class Espia inherits Empleado{
+	method estaIncapacitado() = self.salud() < 15
+	
+}
+
+class Oficinista inherits Empleado{
+	var property cantidadEstrellas = 0
+	
+	method sobreviveMision() {
+		cantidadEstrellas = cantidadEstrellas + 1
+	} 
+	
+	method estaIncapacitado() = self.salud() < (40 - 5*cantidadEstrellas) 
+	
+}
+
+const oficinista = new Oficinista(habilidades = #{"Mirar a los ojos", "Salvar al presidente", "Usar excel"})
+const espia = new Espia(habilidades = #{"Disparar", "Salvar damiselas", "Tomar de la buena", "Usar disfraz"})

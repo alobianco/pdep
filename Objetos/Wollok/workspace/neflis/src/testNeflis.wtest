@@ -1,0 +1,87 @@
+import neflis.*
+
+describe "Tests de Cuentas"{
+
+	method initialize() {
+		margoZavala.vioContenido(blackSails)
+		margoZavala.vioContenido(avengersEndgame)
+	}
+	
+	test "Cosme puede ver Black Sails" 	{
+		
+		assert.equals(true,cosmeFulanito.puedeVer(blackSails))
+	}
+	
+	test "Cosme puede ver “Sean Eternos”" 	{
+		
+		assert.equals(false,cosmeFulanito.puedeVer(seanEternos))
+	}
+	
+	test "Margo puede ver “Sean Eternos”" 	{
+		
+		assert.equals(true,margoZavala.puedeVer(seanEternos))
+	}
+	
+	test "Margo ve “Black Sails”" 	{
+		
+		assert.that(margoZavala.contenidoVisto().contains(blackSails))
+	}	
+	
+	test "Calcular la valoración de Cosme"
+	{		
+		assert.equals(0, cosmeFulanito.valoracion())	
+	}	
+	
+	test "Calcular la valoración de Margo, luego de ver “Black Sails” y “Avengers Endgame”"{
+		assert.equals(34, margoZavala.valoracion())
+	}
+}
+/* 
+
+describe "Test de Recomendaciones"{	
+	
+	method initialize() {
+		
+		margoZavala.desvio(0.15)
+		
+	}
+	
+	test "Margo (inicialmente con una lista de contenidos vistos vacía) podría ver “Sean Eternos”"{
+				
+		assert.equals(true,margoZavala.veria(seanEternos))	
+	}
+	
+	test "Margo luego de ver “Sean Eternos”, podría ver “Black Sails”"{
+				
+		margoZavala.ver(seanEternos)
+		assert.equals(false,margoZavala.veria(blackSails))
+		
+	}	
+	
+	test "Margo luego de ver “Sean Eternos”, podría ver “Black Sails”, cambiando el desvío a 70%"{
+		
+		margoZavala.desvio(0.7)
+		margoZavala.ver(seanEternos)		
+		assert.equals(true,margoZavala.veria(blackSails))
+	}
+	
+	test "Cosme vería “Black Sails”"{
+		
+		assert.equals(true,cosmeFulanito.veria(blackSails))
+		
+	}
+	
+	test "Cosme vería “Sean Eternos”"{
+		
+		assert.equals(false,cosmeFulanito.veria(seanEternos))
+		
+	}
+		
+	test "Cosme con agregado de preferencia de género “Documental” podría ver “Sean Eternos”"{
+		
+		cosmeFulanito.preferencias("Documental")
+		assert.equals(true,cosmeFulanito.veria(seanEternos))
+		
+	}
+	
+}*/

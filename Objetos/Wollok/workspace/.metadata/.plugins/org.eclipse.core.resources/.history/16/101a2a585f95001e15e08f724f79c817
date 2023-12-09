@@ -1,0 +1,34 @@
+// Un barco tiene una mision, la cual puede cambiar en cualquier momento
+// Un barco tiene tripulantes (Piratas) y puede reclutar mas
+
+
+// Cada pirata puede llevar items, tiene un nivel de ebriedad
+// tambien la cantidad de dinero que tiene (un numero de monedas)
+
+// Misiones, 3 tipos, busqueda de tesoro, convertirse en leyenda y saqueos
+
+
+
+
+// Punto 1 - Saber si un pirata es útil para una misión
+// pirata.esUtilPara(mision)
+// mision.esUtil(pirata)
+
+//----------------------Pirata----------------------//
+
+class Pirata{
+	var property items = []
+	var nivelDeEbriedad
+	var property monedas = 0
+	
+	method tieneItem(item) = items.contains(item)
+}
+
+//----------------------MISIONES----------------------//
+
+object busquedaDelTesoro{
+	
+	method esUtil(pirata) = self.tieneAlgunItemUtil(pirata) && pirata.monedas() <= 5
+	
+	method tieneAlgunItemUtil(pirata) = 
+}

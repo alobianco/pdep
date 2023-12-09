@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Redenominar el recurso &apos;ejemplo1/src/example.wlk&apos; como &apos;pepita.wlk&apos;" description="Redenominar recurso &apos;example.wlk&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/example.wlk" name="pepita.wlk" stamp="1696374026636" updateReferences="true"/>&#x0A;<refactoring comment="Redenominar el recurso &apos;ejemplo1/src/pepita.wpgm&apos; como &apos;programPepita.wpgm&apos;" description="Redenominar recurso &apos;pepita.wpgm&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/pepita.wpgm" name="programPepita.wpgm" stamp="1696376461063" updateReferences="true"/>
+</session>

@@ -1,0 +1,8 @@
+eclipse.preferences.version=1
+repositories/http\:__update.uqbar.org_wollok_stable/count=3
+repositories/http\:__update.uqbar.org_wollok_stable/enabled=true
+repositories/http\:__update.uqbar.org_wollok_stable/name=Wollok Language Update Site
+repositories/http\:__update.uqbar.org_wollok_stable/suffix=content.xml.xz
+repositories/http\:__update.uqbar.org_wollok_stable/type=org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository
+repositories/http\:__update.uqbar.org_wollok_stable/uri=http\://update.uqbar.org/wollok/stable
+repositories/http\:__update.uqbar.org_wollok_stable/version=1.0.0
