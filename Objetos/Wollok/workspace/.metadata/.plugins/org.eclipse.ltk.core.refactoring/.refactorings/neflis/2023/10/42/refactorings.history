@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Redenominar el recurso &apos;neflis/src/example.wlk&apos; como &apos;neflis.wlk&apos;" description="Redenominar recurso &apos;example.wlk&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/example.wlk" name="neflis.wlk" stamp="1696893676722" updateReferences="true"/>
-</session>
